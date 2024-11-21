@@ -4,7 +4,7 @@ class Project(models.Model):
     verbose_name="Título")
  description = models.TextField(
     verbose_name="Descripción")
- image = models.ImageField(
+ image = models.ImageField(upload_to="projects", # <=====
     verbose_name="Imagen")
  created = models.DateTimeField(auto_now_add=True,
     verbose_name="Fecha de creación")
@@ -14,6 +14,8 @@ class Project(models.Model):
     verbose_name = "proyecto"
     verbose_name_plural = "proyectos"
     ordering = ["-created"]
-def __str__(self):
- return self.title
+ def __str__(self):
+    return self.title
+
+
 
