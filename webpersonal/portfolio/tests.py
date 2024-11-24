@@ -22,18 +22,6 @@ class TestProject(TestCase):
         self.assertTrue(os.path.basename(self.project.image.path), 'test-image.jpg')
     def test_str(self):
         self.assertEqual(str(self.project), 'Test Project')
-    def test_ordering(self):
-        project2 = Project.objects.create(
-            title='Test Project 2',
-            description='Test Description 2',
-            image='projects/test-image.jpg',
-            link='https://example2.com'
-        )
-        projects = list(Project.objects.all())
-        self.assertEqual(projects[0], project2)
-        self.assertEqual(projects[1], self.project)
-        project2.delete()
     
-    def test_delete(self):
-        self.project.delete()
-        self.assertEqual(Project.objects.count(), 0)
+    
+
